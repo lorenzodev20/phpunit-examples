@@ -1,0 +1,13 @@
+<?php
+
+require_once dirname(__DIR__) . '/lib/functions.php';
+
+// require_once dirname(__DIR__) . '/src/App/Person.php';
+
+spl_autoload_register(function ($class) {
+    $file = dirname(__DIR__) . '/src/' . str_replace('\\', '/', $class).'.php';
+
+    if (file_exists($file)) {
+        require_once $file;
+    }
+});
